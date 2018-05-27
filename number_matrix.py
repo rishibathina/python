@@ -1,3 +1,7 @@
+'''
+Lot of print statements to debug. Number Matrix was a file given to me. It was a big matrix filled with numbers.
+'''
+
 inFile = open('number_matrix', 'r')                                                                                                                                         
 #list of products for me to maxamize 
 list_of_products = []                                                                                                                  
