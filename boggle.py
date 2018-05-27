@@ -2,7 +2,9 @@ import random
 '''
 Program to game boggle
 '''
-
+'''
+Aops list a list of all the words that are considered valid in this game. We need a base list in order to check what words they create are valid or not
+'''
 def isin_aops_list(word):
    infile = open ('wordlist.txt', 'r')
    content = infile.readlines()
