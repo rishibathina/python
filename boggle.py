@@ -1,5 +1,7 @@
 import random                                                                 
-
+'''
+Program to game boggle
+'''
 
 def isin_aops_list(word):
    infile = open ('wordlist.txt', 'r')
