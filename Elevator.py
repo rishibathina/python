@@ -9,6 +9,7 @@ class Elevator:
                     (True = 'open')'''
         self.floor = startFloor  # store floor attribute
         self.doorsOpen = startDoorsOpen  # store doors attribute
+        self.passengers = []   # list of passengers - starts empty
 
     def __str__(self):
         '''str(Elevator) -> str
@@ -20,6 +21,9 @@ class Elevator:
             answer += 'closed'    # say that too
         answer += ', floor '      # this is in every answer
         answer += str(self.floor) # add floor number
+        answer += ', passengers: ' # passenger list
+        for person in self.passengers:
+            answer += person + ' '
         return answer
 
     def open_doors(self):
@@ -53,17 +57,28 @@ class Elevator:
         Closes doors, moves to destination, and opens doors.'''
         if self.doorsOpen:               # if doors are open
             self.close_doors()           # close 'em
-            print(self)                  ### TEMPORARY: print info for debugging
         while self.floor != destination: # if not at destination
             if self.floor < destination: # if below
                 self.go_up()             # go up 1 floor
             else:                        # if above
                 self.go_down()           # go down 1 floor
-            print(self)                  ### TEMPORARY: print info for debugging
-        self.open_doors()                # open pod bay doors
-        print(self)                      ### TEMPORARY: print info for debugging
+        self.open_doors()                # open doors
 
-e = Elevator(1,True)
-print(e)
-e.go_to_floor(4)
-print(e)
+    def get_on(self, person):
+        '''Elevator.get_on(person)
+        Lets person on elevator (if doors are open)'''
+        if self.doorsOpen:
+            self.passengers.append(person)
+        else:
+            print("Can't get on while doors are closed!")
+
+    def get_off(self, person):
+        '''Elevator.get_off(person)
+        Lets person off elevator (if doors are open)'''
+        # check if person is on first
+        if person not in self.passengers:
+            print(person + " is not on the elevator!")
+        elif self.doorsOpen:
+            self.passengers.remove(person)
+        else:
+            print("Can't get off while doors are closed!")
