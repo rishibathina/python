@@ -48,7 +48,14 @@ class Die:
     def add(self,other):
         '''Die.add(Die) -> object
         returns the sum of the two dice's tops'''
-        return self.top + other.top      
+        return self.top + other.top    
+    def flip(self):
+        top_index = self.sides[self.top - 1] - 1
+        print (top_index)
+        reversed_sides = self.sides
+        reversed_sides = reversed_sides[::-1]
+        print (reversed_sides)
+        return reversed_sides[top_index]  
 
 def decathlon_400_meters():
     '''decathlon_400_meters() -> int
